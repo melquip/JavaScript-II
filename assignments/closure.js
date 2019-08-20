@@ -4,6 +4,10 @@
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
 
+const numbers = [1,2,3,4,5,6,7,8,9];
+function even() {
+  return numbers.filter((num) => num % 2 === 0);
+}
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
