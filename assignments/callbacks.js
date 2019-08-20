@@ -77,3 +77,15 @@ function removeDuplicates(array, cb) {
 }
 
 // removeDuplicates([1, 1, 2, 2, 3, 3, 3], (arr) => console.log(arr)); // test
+
+
+
+
+
+// STRETCH IIFE - Immediately Invoked Function Expression 
+// test
+const globalNumbers = [9,8,7,6,5,4,3,2,1];
+(function() {
+  globalNumbers.sort();
+})();
+console.log('globalNumbers were changed by an IIFE: ', globalNumbers);

@@ -36,7 +36,7 @@ Use `.forEach()`, `.map()`, `.filter()`, and `.reduce()` to loop over an array w
 
 * [x] Complete the problems provided to you but skip over stretch problems until you are complete with every other JS file first.
 
-* [ ] Notice the last three problems are up to you to create and solve.  This is an awesome opportunity for you to push your critical thinking about array methods, have fun with it.
+* [x] Notice the last three problems are up to you to create and solve.  This is an awesome opportunity for you to push your critical thinking about array methods, have fun with it.
 
 ## Task 3: Closures
 
@@ -49,5 +49,5 @@ We have learned that closures allow us to access values in scope that have alrea
 
 ## Stretch Goals
 
-* [ ] Go back through the stretch problems that you skipped over and complete as many as you can.
-* [ ] Look up what an IIFE is in JavaScript and experiment with them
+* [x] Go back through the stretch problems that you skipped over and complete as many as you can.
+* [x] Look up what an IIFE is in JavaScript and experiment with them
