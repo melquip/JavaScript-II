@@ -9,6 +9,8 @@ const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 function even() {
 	return numbers.filter((num) => num % 2 === 0);
 }
+const closureTest = even();
+console.log('closureTest:', closureTest);
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
@@ -22,13 +24,14 @@ const counterMaker = () => {
 	//      "closes over" the `count` variable. It can "see" it in the parent scope!
 	// 3- Return the `counter` function.
 	let count = 0;
-	let limit = 10; // challenge 3
+	let limit = 5; // challenge 3
 	function counter() {
 		count++;
 		if (count > limit) { // challenge 3
 			count = 1;
 			console.log('counter was reset for going over the limit of ' + limit);
 		}
+		console.log('Counter changed to:', count);
 		return count;
 	}
 	return counter;
@@ -36,6 +39,13 @@ const counterMaker = () => {
 // Example usage: const myCounter = counterMaker();
 // myCounter(); // 1
 // myCounter(); // 2
+const myCounter = counterMaker();
+myCounter(); // 1
+myCounter(); // 2
+myCounter(); // 3
+myCounter(); // 4
+myCounter(); // 5
+myCounter(); // 6 -> 1
 
 // ==== Challenge 3: Make `counterMaker` more sophisticated ====
 // It should have a `limit` parameter. Any counters we make with `counterMaker`
@@ -50,11 +60,20 @@ const counterFactory = () => {
 	return {
 		increment: function () {
 			counter++;
+			console.log('counterFactory incremented:', counter);
 			return counter;
 		},
 		decrement: function () {
 			counter--;
+			console.log('counterFactory decremented:', counter);
 			return counter;
 		},
 	};
 };
+
+const myCounterFactory = counterFactory();
+myCounterFactory.increment();
+myCounterFactory.decrement();
+myCounterFactory.increment();
+myCounterFactory.increment();
+myCounterFactory.decrement();
