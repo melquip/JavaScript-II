@@ -38,32 +38,62 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
   // "this Pencil is worth a million dollars!"
 */
 
+function testCB(param) {
+  console.log('passed through callback');
+  return param;
+}
 
 function getLength(arr, cb) {
-  // getLength passes the length of the array into the callback.
+	// getLength passes the length of the array into the callback.
+	return cb(arr.length);
 }
+console.log('getLength:', getLength(items, testCB));
 
 function last(arr, cb) {
-  // last passes the last item of the array into the callback.
+	// last passes the last item of the array into the callback.
+	return cb(arr[arr.length - 1]);
 }
+console.log('last:', last(items, testCB));
 
 function sumNums(x, y, cb) {
-  // sumNums adds two numbers (x, y) and passes the result to the callback.
+	// sumNums adds two numbers (x, y) and passes the result to the callback.
+	return cb(x + y);
 }
+console.log('sumNums:', sumNums(2, 3, testCB));
 
 function multiplyNums(x, y, cb) {
-  // multiplyNums multiplies two numbers and passes the result to the callback.
+	// multiplyNums multiplies two numbers and passes the result to the callback.
+	return cb(x * y);
 }
+console.log('multiplyNums:', multiplyNums(2, 3, testCB));
 
 function contains(item, list, cb) {
-  // contains checks if an item is present inside of the given array/list.
-  // Pass true to the callback if it is, otherwise pass false.
+	// contains checks if an item is present inside of the given array/list.
+	// Pass true to the callback if it is, otherwise pass false.
+	//list.find((listItem) => listItem === item) === item
+	return cb(list.includes(item));
 }
+console.log('contains:', contains('Pencil', items, testCB));
 
 /* STRETCH PROBLEM */
 
 function removeDuplicates(array, cb) {
-  // removeDuplicates removes all duplicate values from the given array.
-  // Pass the duplicate free array to the callback function.
-  // Do not mutate the original array.
+	// removeDuplicates removes all duplicate values from the given array.
+	// Pass the duplicate free array to the callback function.
+	// Do not mutate the original array.
+	// can't use unique.push(arrItem)
+	return cb(array.reduce((unique, arrItem) => unique.includes(arrItem) ? unique : [...unique, arrItem], []));
 }
+console.log('removeDuplicates:', removeDuplicates([1, 1, 2, 2, 3, 3, 3], testCB));
+
+
+
+
+
+// STRETCH IIFE - Immediately Invoked Function Expression 
+// test
+const globalNumbers = [9,8,7,6,5,4,3,2,1];
+(function() {
+  globalNumbers.sort();
+})();
+console.log('globalNumbers were changed by an IIFE: ', globalNumbers);
